@@ -1,4 +1,4 @@
-package dev_java.Example;
+package dev_java.practice;
 
 class B {
   int i;

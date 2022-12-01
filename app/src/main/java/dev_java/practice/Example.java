@@ -1,4 +1,4 @@
-package dev_java.Example;
+package dev_java.practice;
 
 public class Example {
   String i = "Example 입니다.";
