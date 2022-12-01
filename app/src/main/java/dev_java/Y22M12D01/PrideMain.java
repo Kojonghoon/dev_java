@@ -5,7 +5,7 @@ public class PrideMain {
     Pride myCar = new Pride();
     Pride herCar = new Pride();
     // Insert here
-    myCar = herCar;
+    herCar = myCar;// myCar의 주소번지 바뀜
     System.out.println(myCar == herCar);
   }
 
