@@ -17,3 +17,9 @@ boolean - 제어문 중요함 - 흐름을 다르게 할 때 - 분기문(if, swit
 
 참조형 변수 
 호출하면 주소번지가 나온다.
+
+
+(접근제한자-public )(staitc)[void][이름]()
+                                              int
+                                              double
+                                              para
