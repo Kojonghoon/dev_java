@@ -12,7 +12,7 @@ class Static3 {
 
   static void methodB() {
     // static void methodX(){
-    // System.out.println("non-static 변수 i methodB 에서 호출 불가 ===> "+i);
+    // System.out.println("non-static 변수 i methodB 에서 호출 불가 ===> " + i);
     System.out.println("static methodB()   호출 ===> " + j);
   }
 }

@@ -24,7 +24,10 @@ public class MemberVOMain {
     memberVO.setMem_id(mem_id);
 
     memberVO.setMem_pw("12345");
+    // 위와 같이 setter메소드를 호출하면 전역변수인 mem_pw에 12345가 초기화 됨
     String mem_pw = memberVO.getMem_pw();
+    // getter메소드를 호출하면 전변인 mem_pw에 저장된 값이 출력됨
+    // 만일 27번 즉 setter메소드를 호출하지 않으면 null출력될 것임.
     System.out.println(mem_pw);
 
     memberVO.setMem_name("홍길동");// setter 메소드를 호출하는 것만으로 초기화됨
