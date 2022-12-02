@@ -11,5 +11,12 @@ public class Wrapper1 {
     // String y=j;
     String y = x;
     System.out.println(y); // 10
+
+    if (y instanceof String) {
+      System.out.println("y는 String 타입 입니다.");
+    }
+    if (i instanceof Integer) {
+      System.out.println("i는 Integer 타입 입니다.");
+    }
   }
 }
