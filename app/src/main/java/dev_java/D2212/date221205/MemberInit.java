@@ -11,9 +11,10 @@ public class MemberInit {
   }
 
   public MemberInit(int i, int hap) {
-    System.out.println("파라미터가 두개인 생성자 호출 성공" + i + "," + hap);
+    System.out.println("파라미터가 두개인 생성자 호출 성공" + this.i + "," + this.hap);// 0,0
     this.i = i;
     this.hap = hap;
+    System.out.println("파라미터가 두개인 생성자 호출 성공" + this.i + "," + this.hap); // 1,0
   }
 
   public static void main(String[] args) {
