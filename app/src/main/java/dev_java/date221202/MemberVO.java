@@ -25,11 +25,6 @@ public class MemberVO {
     return mem_id;
   }
 
-  public static void main(String[] args) {
-    MemberVO memberVO = new MemberVO();
-    System.out.println(memberVO.mem_id); // null - 초기화를 하지 않았기에
-  }
-
   public String getMem_pw() {
     return mem_pw;
   }
@@ -38,4 +33,8 @@ public class MemberVO {
     return mem_name;
   }
 
+  public static void main(String[] args) {
+    MemberVO memberVO = new MemberVO();
+    System.out.println(memberVO.mem_id); // null - 초기화를 하지 않았기에
+  }
 }

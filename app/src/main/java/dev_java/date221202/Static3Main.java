@@ -6,8 +6,8 @@ class Static3 {
 
   void methodA() {
     // void methodX(){
-    System.out.println("non-static   변수 i  methodA     에서 호출가능 ===> " + i);
-    System.out.println("non-static methodA()    호출 ===> " + j);
+    System.out.println("non-static   변수 i  methodA() 에서 호출가능 ===> " + i);
+    System.out.println("non-static methodA() 호출 ===> " + j);
   }
 
   static void methodB() {
