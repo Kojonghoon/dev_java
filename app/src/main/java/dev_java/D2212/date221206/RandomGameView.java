@@ -21,7 +21,11 @@ public class RandomGameView {
 
   // 화면그리기 구현
   public void initDisplay() {
-    jp_east.setLayout(new GridLayout(4, 1));
+    // 동쪽에 붙일 속지의 레이아웃을 설정함.
+    // 메소드의 파라미터로 객체를 생성함 - 왜냐하면 딱 한번만 호출하니까...
+    GridLayout layout = new GridLayout(4, 1);
+    jp_east.setLayout(layout);// 메소드 호출시 파라미터로 개체생성구문 가능함
+    // jp_east.setLayout(new GridLayout(4, 1));
     jf_game.add(jbtn_new);
     jf_game.add(jbtn_dap);
     jf_game.add(jbtn_clear);
