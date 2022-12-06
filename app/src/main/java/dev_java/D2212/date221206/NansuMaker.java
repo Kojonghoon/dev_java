@@ -18,6 +18,24 @@ public class NansuMaker {
     } while (com[0] == com[2] || com[1] == com[2]);
   }
 
+  // 초기화, 지변이 맞다.
+  // 자리가 같다는 것을 배열의 index를 활용하시오.
+  public String account(String use_input) {
+    // insert here
+    int my[] = new int[3];
+    int temp=Integer.parseInt(use_input);
+    
+    if (com[0] == my[0]) {
+      return "1스 2볼";
+    } else if (com[0] == my[0] && com[1] == my[1]) {
+      return "2스 1볼";
+    } else if (com[0] == my[0] && com[1] == my[1] && com[2] == my[2]) {
+      return "3스";
+    }
+    System.out.println();
+    return use_input;
+  }
+
   public static void main(String[] args) {
     NansuMaker nansuMaker = new NansuMaker();
     for (int i = 0; i < 10; i++) {
