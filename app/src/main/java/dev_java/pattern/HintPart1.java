@@ -51,8 +51,11 @@ public class HintPart1 {
         } //////////// 입력받은 숫자가 컴터채번한 숫자와 일치하는 경우
       } //////////// end of inner for문
     } ///////////// end of outter for문
-    return "1스 0볼";
-  }
+    // strike변수값이 3이면 56번은 실행될 기회를 못 갖는다.
+    if (strike == 3)
+      return "정답입니다.";
+    return strike + "스" + ball + "볼";
+  }////////////// end of account
 
   public static void main(String[] args) {
 
