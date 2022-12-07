@@ -1,7 +1,8 @@
 package dev_java.D2212.date221207;
+
 import java.util.Scanner;
 
-public class Nansu1_Park {
+public class Nansu {
   int com = -1;
   Scanner s = null;// 장치로부터 듣기 - 소통 - 매번 새로 받아옴 - 반복문안에 올것
   Scanner s2 = null;
@@ -100,6 +101,4 @@ public class Nansu1_Park {
 
   } // end of while
 
-}
-  
 }
