@@ -6,6 +6,7 @@ public class ArrayEx {
     for (int i = 0; i < com.length; i++) {
       com[i] = (int) (Math.random() * 10);
       System.out.println(com[i]);
+      System.out.println("=========");
     }
     return com;
   }
