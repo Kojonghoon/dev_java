@@ -1,7 +1,11 @@
 package dev_java.D2212.date221209;
 
-public class AcountSample {
+public class AccountSample {
   ButtonArray_2 ba2 = null;
+
+  public AccountSample(ButtonArray_2 ba2) {
+    this.ba2 = ba2;
+  }
 
   public String account() {
     return "낮춰라 ";

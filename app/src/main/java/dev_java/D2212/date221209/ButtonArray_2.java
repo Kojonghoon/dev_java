@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 
 public class ButtonArray_2 implements ActionListener {
     // 선언부
-    AcountSample action = new AcountSample();
+    AccountSample action = new AccountSample(this);
     JFrame jf = new JFrame();// setSize(400,300); 가로세로크기지정 setVisible(true):윈도우창에 활성화하기
     JPanel jp_center = new JPanel();
     JTextArea jta_display = new JTextArea(10, 20);
@@ -69,7 +69,7 @@ public class ButtonArray_2 implements ActionListener {
 
     // 메인 메소드
     public static void main(String[] args) {
-        new ButtonArray();
+        new ButtonArray_2();
     }
 
     @Override
