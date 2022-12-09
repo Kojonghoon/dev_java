@@ -1,26 +1,27 @@
 package dev_java.D2212.date221208_T;
 
-import java.util.Scanner;
-
 public class Test1_1 {
+  // 메서드 선언
   public void count() {
-    Scanner sc = new Scanner((System.in));
-    while (true) {
-      System.out.println("문자열을 입력해주세요 : ");
-      String str = sc.nextLine();
-      if (str.equals("exit")) {
-        break;
-      } else {
-        System.out.println(str.length() + "글자 입니다.");
-        // length() : 문자열에 대한 글자 수 반환 메소드
-      }
-    }
-    System.out.println("프로그램을 종료합니다.");
-    sc.close();
+
   }
 
+  // 메인메서드
   public static void main(String[] args) {
-    Test1_1 t = new Test1_1();
-    t.count();
+    String s1 = new String(" 안녕  ");
+    String s2 = new String(" 안녕  ");
+    String s3 = " 안녕  ";
+    String s4 = " 안녕  ";
+    if (s1 == s2)// 주소번지 비교
+      System.out.println("주소번지가 같니?"); // false
+    if (s1.equals(s2))// 주소번지가 가르키는 값을 비교
+      System.out.println("주소번지가 같니?");
+    System.out.println("======s1.equlas(s2)====");
+    if (s3 == s4)
+      System.out.println("주소번지가 같니?");
+    System.out.println("=====se=3==s4======");
+    if (s3.equals(s4))
+      System.out.println("주소번지가 같니?");
+    System.out.println("======s3.equals(s4)=====");
   }
 }
