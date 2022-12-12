@@ -13,9 +13,6 @@ public class JTextAreaUILogic {
     this.jtaUI = jTextAreaUI;
   }
 
-  public JTextAreaUILogic(JTextAreaUI2 jTextAreaUI2) {
-  }
-
   public void account(String input) {
     System.out.println("account 호출 성공");
     // JTextAreaUI클래스에 정의된 주소번지를 사용하고 싶다. 어떡하지?

@@ -6,16 +6,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 public class JTextAreaUI2 {
   // 선언부
-  JTextAreaUILogic2 jtaUILogic = new JTextAreaUILogic2(this);
+  JTextAreaUILogic2 jtaUILogic2 = new JTextAreaUILogic2(this);
   JTextAreaUI2Event jEvent = new JTextAreaUI2Event(this);
+
+  JScrollPane jsp = null;
   JFrame jf = new JFrame();
   JTextArea jta = null;
-  JScrollPane jsp = null;
   JTextField jtf = new JTextField(10);
 
   public JTextAreaUI2() {
@@ -26,7 +24,9 @@ public class JTextAreaUI2 {
   public JTextArea getTextArea() {
     if (jta == null) {
       jta = new JTextArea(10, 20);
-      jsp = new JScrollPane(jta, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+      jsp = new JScrollPane(jta,
+          JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+          JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     }
     return jta;
   }
