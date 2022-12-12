@@ -1,4 +1,5 @@
 package dev_java.D2212.date221209;
+
 //2배열 -> liss<map< >>제네릭 ->웹개발 , 앱개발 (하이브디르앱)-JSON
 public class TwoArray1 {
   void toWhile(int[][] arr) {
