@@ -14,7 +14,6 @@ import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.table.DefaultTableModel;
 import java.awt.FlowLayout;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
@@ -72,7 +71,10 @@ public class AddressBook implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent e) {
     Object obj = e.getSource();
-    if (obj == jmi_all) {// 전체조회-검색
+    if (obj == jmi_exit) {
+      jf_addr.dispose();
+      // System.exit(0);
+    } else if (obj == jmi_all) {// 전체조회-검색
       String members[][] = {
           { "1", "이순신", "010-555-3434" }, { "2", "강감찬", "010-676-9988" }, { "3", "김춘추", "010-234-7766" }
       };
@@ -96,13 +98,19 @@ public class AddressBook implements ActionListener {
       });
 
     } else if (obj == jbtn_ins) {// 너 입력버튼 누른거야?
-      aDialog.setDialog(jbtn_ins.getText(), true);
+      // aDialog.setDialog("입력"/* +jbtn_ins.getText() */, true);
+      aDialog.setDialog(jmi_ins.getText(), true);
     } else if (obj == jbtn_upd) {// 너 수정할거니?
-      aDialog.setDialog(jbtn_upd.getText(), true);
+      aDialog.setDialog(jmi_upd.getText(), true);
     } else if (obj == jbtn_read) {// 너 상세보기 하려구?
-      aDialog.setDialog(jbtn_read.getText(), true);
-    }
-
+      aDialog.setDialog(jmi_read.getText(), true);
+    } // else if (obj == jmi_ins) {// 너 입력버튼 누른거야?
+    // aDialog.setDialog(jmi_ins.getText(), true);
+    // } else if (obj == jmi_upd) {// 너 수정할거니?
+    // aDialog.setDialog(jmi_upd.getText(), true);
+    // } else if (obj == jmi_read) {// 너 상세보기 하려구?
+    // aDialog.setDialog(jmi_read.getText(), true);
+    // }
   }
 
   // 화면 처리부
@@ -121,11 +129,15 @@ public class AddressBook implements ActionListener {
     jtb.add(jbtn_upd);
     jtb.add(jbtn_del);
     jtb.add(jbtn_read);
+    jmi_exit.addActionListener(this);
     jmi_all.addActionListener(this);// 이벤트소스와 이벤트 핸들러 클래스 매칭
     jbtn_del.addActionListener(this);// 이벤트소스와 이벤트 핸들러 클래스 매칭
     jbtn_ins.addActionListener(this);
     jbtn_upd.addActionListener(this);
     jbtn_read.addActionListener(this);
+    jmi_ins.addActionListener(this);
+    jmi_upd.addActionListener(this);
+    jmi_read.addActionListener(this);
     // 창닫기 버튼 클릭시 종료처리
     jf_addr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     jf_addr.add("North", jtb);
