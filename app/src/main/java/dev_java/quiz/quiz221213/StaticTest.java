@@ -1,4 +1,4 @@
-package dev_java.quiz221213;
+package dev_java.quiz.quiz221213;
 
 class S1 {
   static int i;// 0,전변성격 - 글로벌하게 사용가능함 - 인스턴스화 없이 사용이 가능함-복제본만들지 마라

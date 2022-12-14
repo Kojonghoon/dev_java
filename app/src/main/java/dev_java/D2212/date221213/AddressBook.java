@@ -89,7 +89,7 @@ public class AddressBook implements ActionListener {
         oneRow.add(members[i][2]);
         dtm_addr.addRow(oneRow);
       }
-      // 익명 클래스 문법사용 - 자바 람다식, 자바스크립트 Arrow Function문법과 유사, 코틀린 문법
+      // 익명 클래스 문법사용 - 자바 람다식, 자바스크립트 Arrow Function문법과 유사, 코틀린 문법 
       jsp_addr.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() {
         public void adjustmentValueChanged(AdjustmentEvent e) {
           JScrollBar jsb = (JScrollBar) e.getSource();
