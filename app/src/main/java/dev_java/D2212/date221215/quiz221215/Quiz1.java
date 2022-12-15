@@ -36,6 +36,7 @@ public class Quiz1 {
     Quiz1 q1 = new Quiz1();
     q1.initUsers();
     int hap = q1.total();
+    System.out.println("총점은 " + hap + "입니다.");
     q1.average(hap);
   }
 }
