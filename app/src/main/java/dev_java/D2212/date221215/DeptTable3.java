@@ -31,7 +31,7 @@ import java.util.Vector;
 public class DeptTable3 extends JFrame implements ActionListener { // DeptTable is a JFrame
   // 선언부
   String header[] = { "부서번호", "부서명", "지역" };
-  String datas[][] = new String[1][3];
+  String datas[][] = new String[0][3];
   // this 사용되는 클래스 영역에서 선언된 클래스를 가리킨다.
   // 그러면 여기서는 DeptTable1타입인 것임
   // 그런데 DefaultTableModel은 자바에서 제공되는 클래스임 - 생성자도 생성하지 않음
@@ -109,7 +109,7 @@ public class DeptTable3 extends JFrame implements ActionListener { // DeptTable 
       }
       for (int i = 0; i < depts.length; i++) {
         for (int j = 0; j < depts[i].length; j++) {
-          // System.out.print(depts[i][j] + " ");// ln을 빼서 3개출력하고 줄바꿈처리
+          System.out.print(depts[i][j] + " ");// ln을 빼서 3개출력하고 줄바꿈처리
           dtm_dept.setValueAt("여기", 1, 1);
           System.out.println(dtm_dept.getValueAt(i, j));
         } // end of inner for
