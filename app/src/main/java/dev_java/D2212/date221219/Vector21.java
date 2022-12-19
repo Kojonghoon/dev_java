@@ -14,8 +14,9 @@ public class Vector21 {
     for (int x = 0; x < v.size(); x++) {// 로우의 수 - 2번 반복
       for (int y = 0; y < imsi.length; y++) {// 컬럼의 수 - 3번 반복
         String[] r = v.get(x);
-        System.out.println(r[0] + ", " + r[1] + ", " + r[2]);
+        System.out.println(r[y] + " ");
       }
+      System.out.println();
     }
     // 크기가 얼마인가요? 0
     // 단일 for문 처리
