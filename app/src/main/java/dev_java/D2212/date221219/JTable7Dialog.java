@@ -1,15 +1,18 @@
-package dev_java.D2212.date221216;
+package dev_java.D2212.date221219;
 
 import java.awt.FlowLayout;
+import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-// JDialog도 디폴트가 BorderLayout임 - jp_center를 중앙배치
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class JTable7Dialog extends JDialog {
+// JDialog도 디폴트가 BorderLayout임 - jp_center를 중앙배치
+public class JTable7Dialog extends JDialog implements ActionListener {
   // 선언부
   DeptTable7 deptTable7 = null;
   JPanel jp_center = new JPanel();
@@ -24,6 +27,8 @@ public class JTable7Dialog extends JDialog {
   // jP_south 속지
   JButton jbtn_save = new JButton("저장");
   JButton jbtn_close = new JButton("닫기");
+  // 왜 null을 주는지 설명할 수 있다.
+  String[] oneRow = null;
 
   // 생성자
   public JTable7Dialog() {
@@ -36,6 +41,8 @@ public class JTable7Dialog extends JDialog {
 
   // 화면그리기
   public void initDisplay() {
+    jbtn_save.addActionListener(this);
+    jbtn_close.addActionListener(this);
     jp_center.setLayout(null);
     jp_south.setLayout(new FlowLayout(FlowLayout.RIGHT));
     jlb_deptno.setBounds(20, 20, 100, 20);
@@ -55,7 +62,7 @@ public class JTable7Dialog extends JDialog {
     this.add("Center", jsp_center);
     this.add("South", jp_south);
     this.setSize(400, 360);
-    this.setVisible(true);
+    this.setVisible(false);
   }
 
   // 새로고침 -Vector에 담김 String[]출력하기
@@ -63,9 +70,9 @@ public class JTable7Dialog extends JDialog {
   // 그 다이얼로그 화면은 닫히고 부모창은 새로고침 처리한다.
   // 그러니까 다이얼로그창에서 부모클래스의 refreshData메소드를 호출해야함
   // 그러니까 인스턴스화 할 때 파라미터에 this를 넘겨서 사용할 수 있도록 할것.(NullPointerException)
-  public void refreshData() {
-    System.out.println("refreshData 호출");
-  }
+  // public void refreshData() {
+  // System.out.println("refreshData 호출");
+  // }
 
   // 각 컬럼(부서집합-부서번호, 부서명, 지역)의 값들을 설정하거나
   // 읽어오는 getter/setter 메소드임
@@ -89,20 +96,60 @@ public class JTable7Dialog extends JDialog {
     return jtf_loc.getText();
   }
 
-  public void setloc(String loc) {
+  public void setLoc(String loc) {
     jtf_loc.setText(loc);
   }
 
-  public void setValue(String[] oneRow) {
-    // 입력을 위한 윈도우 설정 - 모든 값을 빈문자열로 셋팅함
+  // 아래 메소드는 DeptTable7에서 호출됨
+  // actionPerformed에서 이벤트(입력, 수정, 상세보기)가 발생되면 호출됨
+  // 메소드의 파라미터 자리는 Call by Value에 의해서 결정됨
+  public void set(String title, boolean isView, String[] oneRow) {
+    this.setTitle(title);
+    this.setVisible(isView);
+    this.oneRow = oneRow;
+    setValue(oneRow);
+  }
 
+  public void setValue(String[] oneRow) {// 이런 공통코드를 나는 작성할 수 있다.
+    // 입력을 위한 윈도우 설정 - 모든 값을 빈문자열로 셋팅함
+    if (oneRow == null) {
+      setDeptno(" ");
+      setDname(" ");
+      setLoc(" ");
+
+    }
     // 상세조회, 수정시는 배열로 받은 값으로 셋팅함
+    // 부모창에서 set메소드 호출시 파라미터로 넘겨준 값으로 초기화 할 것
+    else {
+      setDeptno(oneRow[0]);
+      setDname(oneRow[1]);
+      setLoc(oneRow[2]);
+    }
 
   }// end of setValue
 
   // 메인
   public static void main(String[] args) {
-    new JTable7Dialog();
+    new JTable7Dialog(null);
+  }
+
+  @Override
+  public void actionPerformed(ActionEvent e) {
+    Object obj = e.getSource();
+    if (obj == jbtn_save) {
+      // OneRow가 존재하면 수정모드, 그렇지 않으면 입력모드로 함
+      if (oneRow != null) {
+
+      } else {
+        String[] oneRow = { getDeptno(), getDname(), getLoc() };
+        System.out.println(oneRow[0] + ", " + oneRow[1] + ", " + oneRow[2]);
+        System.out.println("before : " + DeptTable7.vdata.size());
+        DeptTable7.vdata.add(oneRow);
+        System.out.println("after : " + DeptTable7.vdata.size());
+        deptTable7.refreshData();
+        this.dispose();
+      }
+    }
   }
 }
 
