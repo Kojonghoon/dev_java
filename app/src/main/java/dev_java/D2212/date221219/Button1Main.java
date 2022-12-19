@@ -60,7 +60,6 @@ class Button1Event implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent e) {
-    // TODO Auto-generated method stub
     Object obj = e.getSource();
     // 너 수정버튼 누른거야?
     if (obj == button1.jbtn_upd) {
