@@ -40,22 +40,16 @@ class Button1 extends JFrame {
     this.add("East", jbtn_del);
     this.setSize(400, 300);
     this.setVisible(true);
-
   }
-
 }
 
 // ActionListener의 구현체 클래스이다 - 이벤트 핸들러 클래스
 // 인터페이스는 추상메소드만 가진다.
 class Button1Event implements ActionListener {
-
   Button1 button1 = null;
   // Button1 button1 = new Button1(); 이렇게 하면 원본이 아니고 복사본이라서 주소값 달라서 안됨!
-
   public Button1Event(Button1 button1) {
-
     this.button1 = button1;
-
   }
 
   @Override
@@ -66,16 +60,12 @@ class Button1Event implements ActionListener {
       System.out.println("수정버튼 클릭");
     }
   }
-
 }
 
 public class Button1Main {
   public static void main(String[] args) {
-
     Button1 b1 = new Button1(); // 선언,생성 동시에 Button1() 생성자 호출됨!
     // Button1 b2 = new Button1(); 다른 주소값으로 생성됨
     // Button1 b3 = new Button1();
-
   }
-
 }
