@@ -18,7 +18,7 @@ public class VectorCRUD2 {
     } //// end of outter
   }
 
-  public int deptInsert(DeptVO dvo1) {// 지변 - 메소드영역안에서..
+  public int deptInsert(String[] dvo1) {// 지변 - 메소드영역안에서..
     System.out.println("부서 정보 입력 호출");
     int result = 0;// 1이면 성공, 0이면 실패
     boolean isOk = vdept.add(dvo1);

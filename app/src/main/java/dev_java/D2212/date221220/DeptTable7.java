@@ -1,4 +1,4 @@
-package dev_java.D2212.date221222;
+package dev_java.D2212.date221220;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 import dev_java.D2212.date221220.DeptVO;
+import dev_java.D2212.date221220.JTable7Dialog;
 
 public class DeptTable7 extends JFrame implements ActionListener {
 	// 선언부
@@ -137,16 +138,7 @@ public class DeptTable7 extends JFrame implements ActionListener {
 			DeptVO pdVO = vdata.get(index);
 			jtd7.set("상세보기", true, pdVO, false);
 		}
-		// 너 삭제할거야?
-		else if (obj == jbtn_del) {
-			int index = jtb_dept.getSelectedRow();
-			if (index == -1) {// -1은 end of file의미. 끝까지 다 찾았는데 없다
-				JOptionPane.showMessageDialog(this, "삭제 할 거를 선택해줘.");
-				return;// actionPerformed탈출함
-			}
-			vdata.remove(index);
-			refreshData();
-		}
+
 	}
 
 	public static void main(String[] args) {

@@ -1,19 +1,14 @@
-package dev_java.D2212.date221222;
+package dev_java.D2212.date221220;
 
 import java.awt.FlowLayout;
-import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-
-import dev_java.D2212.date221220.DeptVO;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 
 // JDialog도 디폴트가 BorderLayout임 - jp_center를 중앙배치
 public class JTable7Dialog extends JDialog implements ActionListener {
@@ -153,6 +148,9 @@ public class JTable7Dialog extends JDialog implements ActionListener {
         this.dispose();
       }
     }
+  }
+
+  public void set(String string, boolean b, Object object, boolean c) {
   }
 }
 
