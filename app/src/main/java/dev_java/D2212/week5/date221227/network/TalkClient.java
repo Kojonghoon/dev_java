@@ -41,8 +41,8 @@ public class TalkClient extends JFrame implements ActionListener {
   JScrollPane jsp = new JScrollPane(jtb);
   JPanel jp_first = new JPanel();
   JPanel jp_first_south = new JPanel();
-  JTextField jtf_msg = new JTextField(20);// south속지 center
   JButton jbtn_send = new JButton("전송");// south속지 east
+  JTextField jtf_msg = new JTextField(20);// south속지 center
   JTextArea jta_display = new JTextArea(15, 38);
   JScrollPane jsp_display = new JScrollPane(jta_display, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
       JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
