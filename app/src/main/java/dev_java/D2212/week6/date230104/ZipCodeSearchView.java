@@ -1,5 +1,9 @@
 package dev_java.D2212.week6.date230104;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,11 +13,13 @@ import java.util.Vector;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 import dev_java.oracle.util.DBConnectionMgr;
 
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 public class ZipCodeSearchView extends JFrame implements ItemListener {
 
@@ -41,6 +47,14 @@ public class ZipCodeSearchView extends JFrame implements ItemListener {
   Connection con = null;
   PreparedStatement pstmt = null;
   ResultSet rs = null;
+  // 테이블 생성
+  String[] cols = { "우편번호", "주소" };
+  String[][] data = new String[3][3];
+  DefaultTableModel dtm_zipcode = new DefaultTableModel(data, cols);
+  JTable jtb_zipcode = new JTable(dtm_zipcode);
+  JTableHeader jth_zipcode = jtb_zipcode.getTableHeader();
+  JScrollPane jsp_zipcode = new JScrollPane(jtb_zipcode, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+      JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
   // 생성자
   public ZipCodeSearchView() {
@@ -101,15 +115,21 @@ public class ZipCodeSearchView extends JFrame implements ItemListener {
 
   // 화면처리부
   public void initDisplay() {
-    // 윈도우창 닫기 버튼
+    jth_zipcode.setBackground(Color.orange);
+    jth_zipcode.setFont(new Font("맑은고딕", Font.BOLD, 20));
+    jtb_zipcode.getColumnModel().getColumn(0).setPreferredWidth(100);
+    jtb_zipcode.getColumnModel().getColumn(1).setPreferredWidth(300);
+    // 그리드 색상 - 빨강
+    jtb_zipcode.setGridColor(Color.red);
+    // 윈도우창 닫기 버튼-자원 회수하기
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     jp_north.add(jcb_zdo);
     jp_north.add(jcb_sigu);
     jp_north.add(jcb_dong);
     this.add("North", jp_north);
+    this.add("Center", jsp_zipcode);
     this.setSize(630, 400);
     this.setVisible(true);
-
   }
 
   // 메인메소드
@@ -126,7 +146,7 @@ public class ZipCodeSearchView extends JFrame implements ItemListener {
     // 너 ZDO콤보박스니?
     if (obj == jcb_zdo) {
       if (ie.getStateChange() == ItemEvent.SELECTED) {
-        System.out.println("선택한 ZDO ==>" + zdos[jcb_zdo.getSelectedIndex()]);
+        System.out.println("선택한r ZDO ==>" + zdos[jcb_zdo.getSelectedIndex()]);
         zdo = zdos[jcb_zdo.getSelectedIndex()];
         sigus = getSiguList(zdo);
         // 대분류가 결정이 되었을때 sigus를 초기화해줘야한다.
@@ -176,5 +196,6 @@ public class ZipCodeSearchView extends JFrame implements ItemListener {
       }
     }
     return sigus;
-  }//end of getSiguList
+  }
+
 }
