@@ -26,6 +26,7 @@ public class AddressBook implements ActionListener {
   String imgPath = "D:\\vscode_java\\dev_java\\app\\src\\main\\java\\dev_java\\images\\address\\";
   // 툴바 및 타이틀 이미지설정
   ImageIcon titlIcon = new ImageIcon(imgPath + "memo.png");
+  jf_addr.setIconImage(titlIcon.getImage());
   JToolBar jtb = new JToolBar();
   JFrame jf_addr = new JFrame();
   // 메뉴바 구성하기 시작
